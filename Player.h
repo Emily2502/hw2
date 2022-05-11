@@ -14,10 +14,31 @@ class Player {
 
 
     public:
-
-    Player(const Player&);
+    /**
+     * C'tor of Player class
+     *
+     * @param name - The name of the player.
+     * @param maxHp - The maximum HP possible for the player.
+     * @param force - The force of the player.
+     * @return
+     *      A new instance of Player.
+    */
     Player(const char* name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+
+    /**
+     * Copy c'tor of Player class
+     *
+     * @param Player& - Reference to plaer we wish to copy.
+     * @return
+     *      A new instance of Player.
+    */
+    Player(const Player&);
+
+    /**
+     * d'tor of Player class
+    */
     ~Player();
+
     Player& operator=(const Player&);
     void printPlayerInfo();
     void levelUp();
