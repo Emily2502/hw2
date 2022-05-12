@@ -4,6 +4,7 @@
 #define INITIAL_COINS 0
 #define MAX_LEVEL 10
 
+
 Player::Player(const char* name, int maxHp, int force)
 {
     m_name = name;
@@ -19,7 +20,7 @@ Player::~Player()
     delete m_name;
 }
 
-void Player::printPlayerInfo()
+void Player::printPlayerInfo() const
 {
     std::cout << "Player Details:" << std::endl;
     std::cout << "Name: " << m_name << std::endl;
@@ -38,7 +39,7 @@ void Player::levelUp()
     }
 }
 
-int Player::getLevel()
+int Player::getLevel() const
 {
     return m_level;
 }
@@ -68,7 +69,7 @@ void Player::damage(int hpPointsToDowngrade)
     m_hp -= hpPointsToDowngrade;
 }
 
-bool Player::inKnockOut()
+bool Player::inKnockOut() const
 {
     if (m_hp == 0)
     {
@@ -92,7 +93,7 @@ bool Player::pay(int coinsToPay)
     return true;
 }
 
-int Player::getAttackStrength()
+int Player::getAttackStrength() const
 {
     return m_force + m_level;
 }

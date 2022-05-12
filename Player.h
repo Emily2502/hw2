@@ -52,7 +52,7 @@ public:
      * @return
      *      void
     */
-    void printPlayerInfo();
+    void printPlayerInfo() const;
 
     /**
      * Increases the level of a player by one
@@ -69,7 +69,7 @@ public:
      * @return
      *      level of said player
     */
-    int getLevel();
+    int getLevel() const;
 
     /**
      * Increases the force of a player
@@ -105,7 +105,7 @@ public:
      *      true - if HP of said player is zero
      *      false - otherwise
     */
-    bool inKnockOut();
+    bool inKnockOut() const;
 
     /**
      * Increases number of coins of a player
@@ -135,7 +135,7 @@ public:
      * @return
      *      attack strength of said player
     */
-    int getAttackStrength();
+    int getAttackStrength() const;
 
 private:
     const char* m_name;  /** English letters. no spaces */
