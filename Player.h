@@ -5,15 +5,7 @@
 
 class Player {
 
-    const char* m_name; /** English letters. no spaces */
-    int m_hp; /** [0,maxHP] */
-    int m_level; /** [1,10] */
-    int m_force; /** natural number */
-    int m_maxHp; /** natural number */
-    int m_coins; /** non-negative integer */
-
-
-    public:
+public:
     /**
      * C'tor of Player class
      *
@@ -28,35 +20,130 @@ class Player {
     /**
      * Copy c'tor of Player class
      *
-     * @param Player& - Reference to plaer we wish to copy.
+     * @param Player& - Reference to player to copy.
      * @return
      *      A new instance of Player.
     */
-    Player(const Player&);
+    Player(const Player&) = default;
 
     /**
-     * d'tor of Player class
+     * D'tor of Player class
+     *
+     * @return
+     *      void
     */
     ~Player();
 
-    Player& operator=(const Player&);
+    /**
+     * assignment operator for Player class
+    */
+    Player& operator=(const Player&) = default;
+
+    /**
+     * Prints information of a Player in the following format
+     * Player Details:
+     * Name:
+     * Level:
+     * Force:
+     * HP:
+     * Coins:
+     * ------------------------
+     *
+     * @return
+     *      void
+    */
     void printPlayerInfo();
+
+    /**
+     * Increases the level of a player by one
+     * if player's level is at maximum value already nothing will be done
+     *
+     * @return
+     *      void
+    */
     void levelUp();
+
+    /**
+     * Gets the level of a player
+     *
+     * @return
+     *      level of said player
+    */
     int getLevel();
+
+    /**
+     * Increases the force of a player
+     *
+     * @param forcePointsToUpgrade - Number of points to increase player's force by.
+     * @return
+     *      void
+    */
     void buff(int forcePointsToUpgrade);
+
+    /**
+     * Increases HP of a player
+     *
+     * @param hpPointsToUpgrade - Number of points to increase player's HP by.
+     * @return
+     *      void
+    */
     void heal(int hpPointsToUpgrade);
+
+    /**
+     * Decreases HP of a player
+     *
+     * @param hpPointsToDowngrade - Number of points to decrease player's HP by.
+     * @return
+     *      void
+    */
     void damage(int hpPointsToDowngrade);
+
+    /**
+     * Checks if HP of a player is zero
+     *
+     * @return
+     *      true - if HP of said player is zero
+     *      false - otherwise
+    */
     bool inKnockOut();
+
+    /**
+     * Increases number of coins of a player
+     *
+     * @param coinsToAdd - Number of points to increase player's coins by.
+     * @return
+     *      void
+    */
     void addCoins(int coinsToAdd);
+
+    /**
+     * Makes a player pay
+     * if said player has enough coins then this function decreases the number of coins
+     * they have.
+     *
+     * @param coinsToPay - Number of points to a player has to pay.
+     * @return
+     *      true - if said player has enough coins
+     *      false - otherwise
+    */
     bool pay(int coinsToPay);
+
+    /**
+     * Gets attack strength of a player
+     * attack strength is define by force + level
+     *
+     * @return
+     *      attack strength of said player
+    */
     int getAttackStrength();
+
+private:
+    const char* m_name;  /** English letters. no spaces */
+    int m_hp;  /** [0,maxHp] */
+    int m_level;  /** [1,10] */
+    int m_force;  /** natural number */
+    int m_maxHp;  /** natural number */
+    int m_coins;  /** non-negative integer */
 };
-
-
-
-
-
-
-
 
 #endif //HW2_PLAYER_H
