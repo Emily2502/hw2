@@ -2,6 +2,7 @@
 #include <iostream>
 #define INITIAL_LEVEL 1
 #define INITIAL_COINS 0
+#define MAX_LEVEL 10
 
 Player::Player(const char* name, int maxHp, int force)
 {
@@ -18,14 +19,6 @@ Player::~Player()
     delete m_name;
 }
 
-Player::Player(const Player& player):
-    m_name(player.m_name),
-    m_hp(player.m_hp),
-    m_level(player.m_level),
-    m_force(player.m_force),
-    m_maxHp(player.m_maxHp),
-    m_coins(player.m_coins) {}
-
 void Player::printPlayerInfo()
 {
     std::cout << "Player Details:" << std::endl;
@@ -39,7 +32,7 @@ void Player::printPlayerInfo()
 
 void Player::levelUp()
 {
-    if (m_level < 10)
+    if (m_level < MAX_LEVEL)
     {
         m_level++;
     }
