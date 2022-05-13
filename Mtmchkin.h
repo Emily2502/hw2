@@ -16,9 +16,10 @@
 enum class GameStatus{Win, Loss, MidGame};
 
 class Mtmchkin {
+
 public:
 
-    /*
+    /**
      * C'tor of the game:
      *
      * @param playerName - The name of the player.
@@ -60,7 +61,11 @@ public:
     //TODO: complete the Mtmchkin class.
 
 private:
-    //TODO: complete the Mtmchkin class.
+    Player m_player;
+    const Card* m_cardsArray;
+    int m_numOfCards;
+    GameStatus m_gameStatus;
+    int m_nextCardIndex;
 
 };
 

@@ -1,8 +1,8 @@
 #include "Player.h"
 #include <iostream>
-#define INITIAL_LEVEL 1
-#define INITIAL_COINS 0
-#define MAX_LEVEL 10
+const int INITIAL_LEVEL = 1;
+const int INITIAL_COINS = 0;
+const int MAX_LEVEL = 10;
 
 
 Player::Player(const char* name, int maxHp, int force)
@@ -44,12 +44,12 @@ int Player::getLevel() const
     return m_level;
 }
 
-void Player::buff(int forcePointsToUpgrade)
+void Player::buff(const int forcePointsToUpgrade)
 {
     m_force += forcePointsToUpgrade;
 }
 
-void Player::heal(int hpPointsToUpgrade)
+void Player::heal(const int hpPointsToUpgrade)
 {
     if (m_hp + hpPointsToUpgrade >= m_maxHp)
     {
@@ -59,7 +59,7 @@ void Player::heal(int hpPointsToUpgrade)
     m_hp += hpPointsToUpgrade;
 }
 
-void Player::damage(int hpPointsToDowngrade)
+void Player::damage(const int hpPointsToDowngrade)
 {
     if (m_hp - hpPointsToDowngrade <= 0)
     {
@@ -78,12 +78,12 @@ bool Player::inKnockOut() const
     return false;
 }
 
-void Player::addCoins(int coinsToAdd)
+void Player::addCoins(const int coinsToAdd)
 {
     m_coins += coinsToAdd;
 }
 
-bool Player::pay(int coinsToPay)
+bool Player::pay(const int coinsToPay)
 {
     if (coinsToPay > m_coins)
     {
@@ -97,3 +97,4 @@ int Player::getAttackStrength() const
 {
     return m_force + m_level;
 }
+

@@ -1,7 +1,7 @@
 #ifndef HW2_PLAYER_H
 #define HW2_PLAYER_H
-#define DEFAULT_FORCE 5
-#define DEFAULT_MAX_HP 100
+const int DEFAULT_FORCE = 5;
+const int DEFAULT_MAX_HP = 100;
 
 class Player {
 
@@ -15,7 +15,7 @@ public:
      * @return
      *      A new instance of Player.
     */
-    Player(const char* name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+    explicit Player(const char* name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
 
     /**
      * Copy c'tor of Player class
