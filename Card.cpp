@@ -19,7 +19,7 @@ void Card::applyEncounter(Player &player) const
         {
             player.damage(m_stats.hpLossOnDefeat);
         }
-        printBattleResult(player.isKnockedOut());
+        printBattleResult(!player.isKnockedOut());
         return;
     }
 
