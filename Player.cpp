@@ -4,13 +4,24 @@ const int INITIAL_LEVEL = 1;
 const int INITIAL_COINS = 0;
 const int MAX_LEVEL = 10;
 
-Player::Player(const std::string &name, int maxHp, int force) :
-    m_name(name),
-    m_hp(maxHp),
-    m_level(INITIAL_LEVEL),
-    m_force(force),
-    m_maxHp(maxHp),
-    m_coins(INITIAL_COINS) {}
+Player::Player(const std::string &name, int maxHp, int force)
+{
+    if (maxHp <= 0)
+    {
+        maxHp = DEFAULT_MAX_HP;
+    }
+    if (force <= 0)
+    {
+        force = DEFAULT_FORCE;
+    }
+
+    m_name = name;
+    m_hp = maxHp;
+    m_level = INITIAL_LEVEL;
+    m_force = force;
+    m_maxHp = maxHp;
+    m_coins = INITIAL_COINS;
+}
 
 
 void Player::printInfo() const
@@ -39,27 +50,36 @@ int Player::getLevel() const
 
 void Player::buff(const int forcePointsToUpgrade)
 {
-    m_force += forcePointsToUpgrade;
+    if (forcePointsToUpgrade > 0)
+    {
+        m_force += forcePointsToUpgrade;
+    }
 }
 
 void Player::heal(const int hpPointsToUpgrade)
 {
-    if (m_hp + hpPointsToUpgrade >= m_maxHp)
+    if (hpPointsToUpgrade > 0)
     {
-        m_hp = m_maxHp;
-        return;
+        if (m_hp + hpPointsToUpgrade >= m_maxHp)
+        {
+            m_hp = m_maxHp;
+            return;
+        }
+        m_hp += hpPointsToUpgrade;
     }
-    m_hp += hpPointsToUpgrade;
 }
 
 void Player::damage(const int hpPointsToDowngrade)
 {
-    if (m_hp - hpPointsToDowngrade <= 0)
+    if (hpPointsToDowngrade > 0)
     {
-        m_hp = 0;
-        return;
+        if (m_hp - hpPointsToDowngrade <= 0)
+        {
+            m_hp = 0;
+            return;
+        }
+        m_hp -= hpPointsToDowngrade;
     }
-    m_hp -= hpPointsToDowngrade;
 }
 
 bool Player::isKnockedOut() const
@@ -73,16 +93,22 @@ bool Player::isKnockedOut() const
 
 void Player::addCoins(const int coinsToAdd)
 {
-    m_coins += coinsToAdd;
+    if (coinsToAdd > 0)
+    {
+        m_coins += coinsToAdd;
+    }
 }
 
 bool Player::pay(const int coinsToPay)
 {
-    if (coinsToPay > m_coins)
+    if (coinsToPay > 0)
     {
-        return false;
+        if (coinsToPay > m_coins)
+        {
+            return false;
+        }
+        m_coins -= coinsToPay;
     }
-    m_coins -= coinsToPay;
     return true;
 }
 
