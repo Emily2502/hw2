@@ -8,31 +8,23 @@ Card::Card(CardType type, const CardStats &stats)
 
 void Card::applyEncounter(Player &player) const
 {
-
-
     if (m_effect == CardType::Battle)
     {
-
-
         if(m_stats.force <= player.getAttackStrength())
         {
             player.levelUp();
             player.addCoins(m_stats.loot);
         }
-
         else
         {
             player.damage(m_stats.hpLossOnDefeat);
         }
-
         printBattleResult(player.isKnockedOut());
         return;
     }
 
-
     if (m_effect == CardType::Buff)
     {
-
         if(player.pay(m_stats.cost))
         {
             player.buff(m_stats.buff);
@@ -40,10 +32,8 @@ void Card::applyEncounter(Player &player) const
         return;
     }
 
-
     if (m_effect == CardType::Heal)
     {
-
         if(player.pay(m_stats.cost))
         {
             player.heal(m_stats.heal);
@@ -51,34 +41,36 @@ void Card::applyEncounter(Player &player) const
         return;
     }
 
-
     if (m_effect == CardType::Treasure)
     {
         player.addCoins(m_stats.loot);
         return;
     }
-
 }
 
 void Card::printInfo() const
 {
-    switch(m_effect)
+    if (m_effect == CardType::Battle)
     {
-        case CardType::Battle :
-        {
-            printBattleCardInfo(m_stats);
-        }
-        case CardType::Heal :
-        {
-            printHealCardInfo(m_stats);
-        }
-        case CardType::Buff :
-        {
-            printBuffCardInfo(m_stats);
-        }
-        case  CardType::Treasure :
-        {
-            printTreasureCardInfo(m_stats);
-        }
+        printBattleCardInfo(m_stats);
+        return;
+    }
+
+    if (m_effect == CardType::Buff)
+    {
+        printBuffCardInfo(m_stats);
+        return;
+    }
+
+    if (m_effect == CardType::Heal)
+    {
+        printHealCardInfo(m_stats);
+        return;
+    }
+
+    if (m_effect == CardType::Treasure)
+    {
+        printTreasureCardInfo(m_stats);
+        return;
     }
 }
