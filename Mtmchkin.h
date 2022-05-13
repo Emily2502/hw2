@@ -67,7 +67,7 @@ public:
      */
     Card takeACardFromDeck();
 
-    ~Mtmchkin();
+    ~Mtmchkin() = default;
 
 
 private:
