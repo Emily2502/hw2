@@ -59,7 +59,7 @@ public:
      * @return
      *      void
     */
-    void printPlayerInfo() const;
+    void printInfo() const;
 
 
     /**
@@ -118,7 +118,7 @@ public:
      *      true - if HP of said player is zero
      *      false - otherwise
     */
-    bool isKnockOut() const;
+    bool isKnockedOut() const;
 
 
     /**

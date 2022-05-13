@@ -14,7 +14,7 @@ void Mtmchkin::playNextCard()
     Card currentCard = takeACardFromDeck();
     currentCard.printInfo();
     currentCard.applyEncounter(m_player);
-    m_player.printPlayerInfo();
+    m_player.printInfo();
 }
 
 GameStatus Mtmchkin::getGameStatus() const

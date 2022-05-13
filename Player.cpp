@@ -13,7 +13,7 @@ Player::Player(const std::string &name, int maxHp, int force) :
     m_coins(INITIAL_COINS) {}
 
 
-void Player::printPlayerInfo() const
+void Player::printInfo() const
 {
     std::cout << "Player Details:" << std::endl;
     std::cout << "Name: " << m_name << std::endl;
@@ -62,7 +62,7 @@ void Player::damage(const int hpPointsToDowngrade)
     m_hp -= hpPointsToDowngrade;
 }
 
-bool Player::isKnockOut() const
+bool Player::isKnockedOut() const
 {
     if (m_hp == 0)
     {
