@@ -41,7 +41,7 @@ public:
     void applyEncounter(Player& player) const;
 
 
-    /*
+    /**
      * Prints the card info:
      *
      * @return
@@ -50,13 +50,13 @@ public:
     void printInfo() const;
 
 
-    /*
+    /**
      * C'tor to the "default card" - Treasure card that gives 0 coins
     */
     Card(): m_effect(CardType::Treasure), m_stats() {}
 
 
-    /*
+    /**
      * Here we are explicitly telling the compiler to use the default methods
     */
     Card(const Card&) = default;
