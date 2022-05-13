@@ -33,7 +33,8 @@ bool Mtmchkin::isOver() const
 
 Card Mtmchkin::takeACardFromDeck()
 {
-    Card result = m_cardsArray[m_currentCardIndex++];
+    Card result = m_cardsArray[m_currentCardIndex];
+    m_currentCardIndex++;
     if (m_currentCardIndex == m_numOfCards)
     {
         m_currentCardIndex = INITIAL_CARD_INDEX;
