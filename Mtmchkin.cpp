@@ -2,13 +2,27 @@
 const int INITIAL_CARD_INDEX = 0;
 const int MAX_LEVEL = 10;
 
-Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
+Mtmchkin::Mtmchkin(const char *playerName, const Card* cardsArray, int numOfCards) :
 
     m_player(playerName),
-    m_cardsArray(cardsArray),
+    m_cardsArray(new Card[numOfCards]),
     m_numOfCards(numOfCards),
     m_currentCardIndex(INITIAL_CARD_INDEX),
-    m_gameStatus(GameStatus::MidGame) {}
+    m_gameStatus(GameStatus::MidGame)
+
+{
+    for (int i = 0; i < numOfCards; i++)
+    {
+        m_cardsArray[i] = cardsArray[i];
+    }
+}
+
+
+Mtmchkin::~Mtmchkin()
+{
+    delete[] m_cardsArray;
+}
+
 
 void Mtmchkin::playNextCard()
 {
@@ -27,10 +41,6 @@ void Mtmchkin::playNextCard()
     }
 }
 
-GameStatus Mtmchkin::getGameStatus() const
-{
-    return m_gameStatus;
-}
 
 bool Mtmchkin::isOver() const
 {
@@ -41,14 +51,22 @@ bool Mtmchkin::isOver() const
     return true;
 }
 
+
+GameStatus Mtmchkin::getGameStatus() const
+{
+    return m_gameStatus;
+}
+
+
 Card Mtmchkin::takeACardFromDeck()
 {
-    Card result = m_cardsArray[m_currentCardIndex];
-    m_currentCardIndex++;
+    Card result = m_cardsArray[m_currentCardIndex++];
     if (m_currentCardIndex >= m_numOfCards)
     {
         m_currentCardIndex = INITIAL_CARD_INDEX;
     }
     return result;
 }
+
+
 

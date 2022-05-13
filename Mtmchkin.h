@@ -32,6 +32,15 @@ public:
 
 
     /**
+     * D'tor of Mtmchkin class
+     *
+     * @return
+     *      void
+    */
+    ~Mtmchkin();
+
+
+    /**
      * Play the next Card - according to the instruction in the exercise document
      *
      * @return
@@ -67,12 +76,13 @@ public:
      */
     Card takeACardFromDeck();
 
-    ~Mtmchkin() = default;
+
+
 
 
 private:
     Player m_player;
-    const Card* m_cardsArray;
+    Card* m_cardsArray;
     int m_numOfCards;
     int m_currentCardIndex;
     GameStatus m_gameStatus;
