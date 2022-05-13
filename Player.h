@@ -105,7 +105,7 @@ public:
      *      true - if HP of said player is zero
      *      false - otherwise
     */
-    bool inKnockOut() const;
+    bool isKnockOut() const;
 
     /**
      * Increases number of coins of a player
