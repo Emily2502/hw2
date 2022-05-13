@@ -69,7 +69,7 @@ void Player::damage(const int hpPointsToDowngrade)
     m_hp -= hpPointsToDowngrade;
 }
 
-bool Player::inKnockOut() const
+bool Player::isKnockOut() const
 {
     if (m_hp == 0)
     {
