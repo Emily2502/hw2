@@ -4,21 +4,14 @@ const int INITIAL_LEVEL = 1;
 const int INITIAL_COINS = 0;
 const int MAX_LEVEL = 10;
 
+Player::Player(const std::string &name, int maxHp, int force) :
+    m_name(name),
+    m_hp(maxHp),
+    m_level(INITIAL_LEVEL),
+    m_force(force),
+    m_maxHp(maxHp),
+    m_coins(INITIAL_COINS) {}
 
-Player::Player(const char* name, int maxHp, int force)
-{
-    m_name = name;
-    m_level = INITIAL_LEVEL;
-    m_coins = INITIAL_COINS;
-    m_force = force;
-    m_maxHp = maxHp;
-    m_hp = m_maxHp;
-}
-
-Player::~Player()
-{
-    delete m_name;
-}
 
 void Player::printPlayerInfo() const
 {

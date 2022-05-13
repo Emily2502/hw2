@@ -1,11 +1,13 @@
 #ifndef HW2_PLAYER_H
 #define HW2_PLAYER_H
+#include <string>
 const int DEFAULT_FORCE = 5;
 const int DEFAULT_MAX_HP = 100;
 
 class Player {
 
 public:
+
     /**
      * C'tor of Player class
      *
@@ -15,7 +17,8 @@ public:
      * @return
      *      A new instance of Player.
     */
-    explicit Player(const char* name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+    explicit Player(const std::string &name, int maxHp = DEFAULT_MAX_HP, int force = DEFAULT_FORCE);
+
 
     /**
      * Copy c'tor of Player class
@@ -26,19 +29,21 @@ public:
     */
     Player(const Player&) = default;
 
+
     /**
      * D'tor of Player class
      *
      * @return
      *      void
     */
-    ~Player();
+    ~Player() = default;
+
 
     /**
      * assignment operator for Player class
     */
     Player& operator=(const Player&) = default;
-    // TODO: free char* name
+
 
     /**
      * Prints information of a Player in the following format:
@@ -56,6 +61,7 @@ public:
     */
     void printPlayerInfo() const;
 
+
     /**
      * Increases the level of a player by one
      * if player's level is at maximum value already nothing will be done
@@ -65,6 +71,7 @@ public:
     */
     void levelUp();
 
+
     /**
      * Gets the level of a player
      *
@@ -72,6 +79,7 @@ public:
      *      level of said player
     */
     int getLevel() const;
+
 
     /**
      * Increases the force of a player
@@ -82,6 +90,7 @@ public:
     */
     void buff(int forcePointsToUpgrade);
 
+
     /**
      * Increases HP of a player
      *
@@ -90,6 +99,7 @@ public:
      *      void
     */
     void heal(int hpPointsToUpgrade);
+
 
     /**
      * Decreases HP of a player
@@ -100,6 +110,7 @@ public:
     */
     void damage(int hpPointsToDowngrade);
 
+
     /**
      * Checks if HP of a player is zero
      *
@@ -109,6 +120,7 @@ public:
     */
     bool isKnockOut() const;
 
+
     /**
      * Increases number of coins of a player
      *
@@ -117,6 +129,7 @@ public:
      *      void
     */
     void addCoins(int coinsToAdd);
+
 
     /**
      * Makes a player pay
@@ -130,6 +143,7 @@ public:
     */
     bool pay(int coinsToPay);
 
+
     /**
      * Gets attack strength of a player
      * attack strength is define by force + level
@@ -139,8 +153,10 @@ public:
     */
     int getAttackStrength() const;
 
+
 private:
-    const char* m_name;  /** English letters. no spaces */
+
+    std::string m_name;  /** English letters. no spaces */
     int m_hp;  /** [0,maxHp] */
     int m_level;  /** [1,10] */
     int m_force;  /** natural number */
