@@ -67,6 +67,8 @@ public:
      */
     Card takeACardFromDeck();
 
+    ~Mtmchkin();
+
 
 private:
     Player m_player;

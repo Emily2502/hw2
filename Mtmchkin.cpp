@@ -40,3 +40,8 @@ Card Mtmchkin::takeACardFromDeck()
     }
     return result;
 }
+
+Mtmchkin::~Mtmchkin()
+{
+    delete m_cardsArray;
+}
