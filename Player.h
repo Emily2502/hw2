@@ -38,9 +38,11 @@ public:
      * assignment operator for Player class
     */
     Player& operator=(const Player&) = default;
+    // TODO: free char* name
 
     /**
-     * Prints information of a Player in the following format
+     * Prints information of a Player in the following format:
+     *
      * Player Details:
      * Name:
      * Level:
