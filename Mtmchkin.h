@@ -31,7 +31,7 @@ public:
     Mtmchkin(const char* playerName, const Card* cardsArray, int numOfCards);
 
 
-    /*
+    /**
      * Play the next Card - according to the instruction in the exercise document
      *
      * @return
@@ -40,7 +40,7 @@ public:
     void playNextCard();
 
 
-    /*
+    /**
      *  Check if the game ended:
      *
      *  @return
@@ -50,7 +50,7 @@ public:
     bool isOver() const;
 
 
-    /*
+    /**
      *  Get the status of the game:
      *
      *  @return
@@ -58,14 +58,22 @@ public:
      */
     GameStatus getGameStatus() const;
 
-    //TODO: complete the Mtmchkin class.
+
+    /**
+     *  Takes a card from the deck:
+     *
+     *  @return
+     *          The new card
+     */
+    Card takeACardFromDeck();
+
 
 private:
     Player m_player;
     const Card* m_cardsArray;
     int m_numOfCards;
+    int m_currentCardIndex;
     GameStatus m_gameStatus;
-    int m_nextCardIndex;
 
 };
 
