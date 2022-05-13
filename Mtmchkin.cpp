@@ -6,8 +6,8 @@ Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCard
     m_player(playerName),
     m_cardsArray(cardsArray),
     m_numOfCards(numOfCards),
-    m_gameStatus(GameStatus::MidGame),
-    m_currentCardIndex(INITIAL_CARD_INDEX) {}
+    m_currentCardIndex(INITIAL_CARD_INDEX),
+    m_gameStatus(GameStatus::MidGame) {}
 
 void Mtmchkin::playNextCard()
 {
