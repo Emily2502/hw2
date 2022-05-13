@@ -1,5 +1,6 @@
 #include "Mtmchkin.h"
 const int INITIAL_CARD_INDEX = 0;
+const int MAX_LEVEL = 10;
 
 Mtmchkin::Mtmchkin(const char *playerName, const Card *cardsArray, int numOfCards) :
 
@@ -15,6 +16,15 @@ void Mtmchkin::playNextCard()
     currentCard.printInfo();
     currentCard.applyEncounter(m_player);
     m_player.printInfo();
+
+    if (m_player.getLevel() == MAX_LEVEL)
+    {
+        m_gameStatus = GameStatus::Win;
+    }
+    else if (m_player.isKnockedOut())
+    {
+        m_gameStatus = GameStatus::Loss;
+    }
 }
 
 GameStatus Mtmchkin::getGameStatus() const
