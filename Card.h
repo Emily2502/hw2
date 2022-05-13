@@ -31,7 +31,7 @@ public:
     Card(CardType type, const CardStats& stats);
 
 
-    /*
+    /**
      * Handling the player's applyEncounter with the card:
      *
      * @param player - The player.
