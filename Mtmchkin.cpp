@@ -61,7 +61,7 @@ GameStatus Mtmchkin::getGameStatus() const
 Card Mtmchkin::takeACardFromDeck()
 {
     Card result = m_cardsArray[m_currentCardIndex++];
-    if (m_currentCardIndex >= m_numOfCards)
+    if (m_currentCardIndex == m_numOfCards)
     {
         m_currentCardIndex = INITIAL_CARD_INDEX;
     }
